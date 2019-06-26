@@ -7,5 +7,106 @@
     <groupId>com.tw.cloud</groupId>
     <artifactId>springcloud-feign</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+    <packaging>pom</packaging>
+
+    <name>springcloud-feign</name>
+
+    <modules>
+        <!--<module>hucheng-springcloud-feign-common</module>
+        <module>hucheng-springcloud-feign-eureka</module>
+        <module>hucheng-springcloud-feign-user-service</module>
+        <module>hucheng-springcloud-feign-rest</module>-->
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+    </parent>
+
+    <properties>
+        <spring-cloud-version>Greenwich.RELEASE</spring-cloud-version>
+        <lombok-version>1.18.6</lombok-version>
+        <spring-core-version>5.1.5.RELEASE</spring-core-version>
+        <commons-lang3-version>3.8.1</commons-lang3-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>com.hucheng.common</groupId>
+                <artifactId>hucheng-springcloud-feign-common</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hucheng.user.api</groupId>
+                <artifactId>hucheng-springcloud-feign-user-api</artifactId>
+                <version>${version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-core-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
