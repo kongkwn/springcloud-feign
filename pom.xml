@@ -6,16 +6,16 @@
 
     <groupId>com.tw.cloud</groupId>
     <artifactId>springcloud-feign</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <name>springcloud-feign</name>
 
     <modules>
-        <!--<module>hucheng-springcloud-feign-common</module>
-        <module>hucheng-springcloud-feign-eureka</module>
-        <module>hucheng-springcloud-feign-user-service</module>
-        <module>hucheng-springcloud-feign-rest</module>-->
+        <module>springcloud-feign-common</module>
+        <module>springcloud-feign-eureka</module>
+        <module>springcloud-feign-user-service</module>
+        <module>springcloud-feign-rest</module>
     </modules>
 
     <parent>
@@ -45,16 +45,16 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!--<dependency>
-                <groupId>com.hucheng.common</groupId>
-                <artifactId>hucheng-springcloud-feign-common</artifactId>
+            <dependency>
+                <groupId>com.tw.cloud</groupId>
+                <artifactId>springcloud-feign-common</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hucheng.user.api</groupId>
-                <artifactId>hucheng-springcloud-feign-user-api</artifactId>
+                <groupId>com.tw.cloud.user.api</groupId>
+                <artifactId>springcloud-feign-user-api</artifactId>
                 <version>${version}</version>
-            </dependency>-->
+            </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
