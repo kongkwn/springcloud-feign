@@ -1,0 +1,20 @@
+在本地创建maven项目并推送到github
+
+    1.使用idea创建maven项目  略
+    then
+        git init
+        git add .
+        git commit -m "project init"
+    在github创建新的仓库并复制下url 例：https://github.com/kongkwn/springcloud-feign.git
+    then
+        git remote add origin https://github.com/kongkwn/springcloud-feign.git
+        若报错 fatal: remote origin already exists.
+        git remote rm origin
+        再次执行 git remote add origin https://github.com/kongkwn/springcloud-feign.git
+        git push -u origin master
+        若报错 hint: Updates were rejected because the remote contains work that you do
+        git pull origin master
+        git pull origin --allow-unrelated-histories
+        git pull origin master
+        git push
+
