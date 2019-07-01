@@ -1,0 +1,42 @@
+参考博客 https://www.cnblogs.com/kkdn/p/9334207.html
+一，微服务简介
+    以开发一组小型服务的方式来开发出一个独立的系统，即系统是由多个微服务组成。
+    每个小型服务都独立运行在自己的进程中，互不影响。
+    服务间采用http rpc rest api等轻量的机制进行通讯。
+    每个小型服务都围绕业务功能进行构建，并独立部署。
+    各服务可以开发语言不同，数据存储技术不同，功能不同，可相互调用，并且可集中管理。
+    [拓展：深入理解微服务九大特征](http://developer.51cto.com/art/201608/516401.htm)
+
+二，微服务优缺点
+    易于开发维护
+    启动部署较快
+    局部修改易
+    不受限于技术栈
+    按需收缩
+    devops
+    [拓展：微服务的优势与不足](http://dockone.io/article/394)
+
+三，微服务之spring-cloud
+    NetFlix公司提供了包括Eureka，Hystrix,zuul,Archaius等在内的很多组件，Spring在NetFlix基础上
+    封装了一系列的组件，命名为Spring Cloud Eureka,Spring Cloud Histrix,Spring Cloud Zuul等
+
+        Spring Cloud Eureka
+            负责服务的注册与发现，Eureka体系包括 服务注册中心 服务提供者 服务消费者
+            服务提供者向eureka 提供服务的注册 续约 下线等服务
+            服务消费者向eureka注册中心拉取服务列表并维护在本地
+        Spring Cloud Ribbon
+            eureka只是维护了生产者 消费者 和 注册中心 三者之间的关系 真正消费者调用服务者的数据是通过Ribbon实现的
+            消费者将服务从注册中心获取生产者服务列表并维护在本地的，这种客户端发现模式的方式是消费者选择合适的节点
+            进行访问生产者提供的数据，这种选择合适节点的过程就是Ribbon负责的，Ribbon客户端负载均衡器由此而来。
+        Spring Cloud Feign
+            具体使用Ribbon调用服务的话，方式比较复杂，于是Feign应运而生。Feign是一个声明web服务客户端，使得编写web服务
+            客户端更容易，使用Feign创建一个接口并对它进行注解，Feign具有可插拔的注解包括Feign注解和JAX-RS注解，Feign还
+            支持可插拔的编码器和解码器，Spring Cloud增加了对SpringMVC的注解，SpringWeb默认使用了HttpMessageConverters
+            SpringCloud集成Ribbon和Eureka提供的负载均衡的Http客户端Feign。
+            简单理解为：Spring Cloud Feign的出现使得Eureka和Ribbon的使用更为简单。
+        Spring Cloud Hystrix
+            Eureka提供服务的注册与发现，Ribbon实现了服务负载均衡的调用，Feign可以简化Ribbon调用简化我们的编码，但还不足以实现
+            一个高可用的微服务架构。
+            例：当一个服务节点出现故障，而服务调用方并不知道服务故障，随着调用方请求的不断增加，形成任务积压，导致服务瘫痪。
+            Hystrix含义即为断路器，防止请求的过载。
+        Spring Cloud Config
