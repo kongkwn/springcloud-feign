@@ -27,7 +27,7 @@
     <properties>
         <spring-cloud-version>Greenwich.RELEASE</spring-cloud-version>
         <lombok-version>1.18.6</lombok-version>
-        <spring-core-version>5.1.5.RELEASE</spring-core-version>
+        <spring-core-version>5.2.24.RELEASE</spring-core-version>
         <commons-lang3-version>3.8.1</commons-lang3-version>
     </properties>
 
